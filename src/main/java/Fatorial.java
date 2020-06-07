@@ -1,7 +1,3 @@
-package com.bcopstein;
-
-import com.bcopstein.Numero;
-
 public class Fatorial {
     private Numero resultado;
     private Multiplicador multiplicador;

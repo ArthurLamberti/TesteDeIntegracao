@@ -1,5 +1,3 @@
-package com.bcopstein;
-
 public class Somador {
     private Numero resultado;
 

@@ -1,7 +1,3 @@
-package com.bcopstein;
-
-import com.bcopstein.Somador;
-
 public class Multiplicador {
     private Numero resultado;
     private Somador somador;

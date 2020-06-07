@@ -1,5 +1,3 @@
-package com.bcopstein;
-
 public class Numero {
     private Integer valor;
 

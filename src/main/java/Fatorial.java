@@ -8,11 +8,14 @@ public class Fatorial {
     }
 
     public Fatorial fatorial(Numero valor) {
+        if(valor.valor() < 0){
+            throw new RuntimeException("Não é possível realizar o fatorial de número negativo");
+        }
         multiplicador.set(valor.duplica());
 
         while (valor.valor() > 1) {
-            multiplicador.vezes(valor);
             valor.dec();
+            multiplicador.vezes(valor);
         }
 
         this.resultado = multiplicador.resultado();

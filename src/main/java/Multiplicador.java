@@ -13,16 +13,30 @@ public class Multiplicador {
     }
 
     public Multiplicador vezes(Numero outro) {
-        outro = outro.duplica();
+        if (this.resultado.valor() == 0 || outro.valor() == 0) {
+            somador.set(new Numero(0));
+            this.resultado = somador.resultado();
+        } else {
+            if (this.resultado.valor() == 1 || this.resultado.valor() == -1) {
+                somador.set(outro.duplica());
+            } else {
+                Numero aux = outro.duplica().abs();
 
-        somador.set(this.resultado.duplica());
+                somador.set(this.resultado.duplica().abs());
 
-        while (outro.valor() > 0) {
-            somador.mais(this.resultado);
-            outro.dec();
+                while (aux.valor() > 1) {
+                    somador.mais(this.resultado.duplica().abs());
+                    aux.dec();
+                }
+            }
+
+            if (this.resultado.valor() < 0 ^ outro.valor() < 0) {
+                this.resultado = new Numero(Math.negateExact(somador.resultado().valor()));
+            } else {
+                this.resultado = somador.resultado();
+            }
         }
 
-        this.resultado = somador.resultado();
         return this;
     }
 
@@ -35,16 +49,29 @@ public class Multiplicador {
             throw new RuntimeException("Divisão não é inteira");
         }
 
-        outro = outro.duplica();
+        if (outro.valor() == 1 || outro.valor() == -1) {
+            somador.set(this.resultado.duplica().abs());
+        } else if(this.resultado.duplica().abs().valor() == outro.duplica().abs().valor()){
+            somador.set(new Numero(1));
+        }else {
+            Numero aux = outro.duplica();
+            aux = aux.abs();
 
-        somador.set(this.resultado.duplica());
-
-        while (outro.valor() > 0) {
-            somador.menos(this.resultado);
-            outro.dec();
+            somador.set(this.resultado.duplica().abs());
+            Numero counter = new Numero(0);
+            while (somador.resultado().valor() != 0) {
+                somador.menos(aux.duplica().abs());
+                counter.inc();
+            }
+            somador.set(counter);
         }
 
-        this.resultado = somador.resultado();
+        if (this.resultado.valor() < 0 ^ outro.valor() < 0) {
+            this.resultado = new Numero(Math.negateExact(somador.resultado().valor()));
+        } else {
+            this.resultado = somador.resultado();
+        }
+
         return this;
     }
 

@@ -1,3 +1,7 @@
+package calculadora;
+
+import calculadora.Numero;
+import calculadora.Somador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

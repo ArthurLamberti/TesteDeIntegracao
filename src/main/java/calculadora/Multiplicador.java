@@ -1,3 +1,5 @@
+package calculadora;
+
 public class Multiplicador {
     private Numero resultado;
     private Somador somador;
@@ -42,11 +44,11 @@ public class Multiplicador {
 
     public Multiplicador dividido(Numero outro) {
         if (outro.valor() == 0) {
-            throw new RuntimeException("Um número não pode ser dividido por 0");
+            throw new NumeroNaoPodeSerDivididoPorZeroException();
         }
 
         if (resultado.valor() % outro.valor() != 0) {
-            throw new RuntimeException("Divisão não é inteira");
+            throw new DivisaoNaoInteiraException();
         }
 
         if (outro.valor() == 1 || outro.valor() == -1) {

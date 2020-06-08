@@ -1,3 +1,9 @@
+package calculadora;
+
+import calculadora.Fatorial;
+import calculadora.Multiplicador;
+import calculadora.Numero;
+import calculadora.Somador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -50,10 +56,9 @@ class FatorialTest{
     }
 
     @Test
-    public void calculaFatorialDe4(){
-        numero = new Numero(4);
-        Fatorial resultado = fatorial.fatorial(numero);
-        int esperado = 24;
-        assertEquals(esperado, resultado.resultado().valor());
+    public void lancaExcecaoFatorialNumeroNegativo(){
+        numero = new Numero(-4);
+
+        assertThrows(FatorialNumeroNegativoException.class, () -> fatorial.fatorial(numero));
     }
 }

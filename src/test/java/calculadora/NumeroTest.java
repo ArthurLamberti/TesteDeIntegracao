@@ -1,3 +1,6 @@
+package calculadora;
+
+import calculadora.Numero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -66,6 +69,17 @@ class NumeroTest {
 
         assertEquals(resultadoEsperado,resultadoObtido);
         assertNotSame(numero, numeroDuplicado);
+    }
+
+    @Test
+    public void testaToString(){
+        Integer numeroPrimitivo = 1;
+        Numero numero = new Numero(numeroPrimitivo);
+
+        String esperado = numeroPrimitivo.toString();
+        String resultado = numero.toString();
+
+        assertEquals(esperado, resultado);
     }
 
 }

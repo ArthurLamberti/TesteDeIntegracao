@@ -5,7 +5,12 @@
     <groupId>com.bcopstein</groupId>
     <artifactId>App</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <properties>
+        <sonar.projectKey>ArthurLamberti_TesteDeIntegracao</sonar.projectKey>
+        <sonar.organization>arthurlamberti</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>014ea3b0fffa5754edf221b2abc59952f18c996c</sonar.login>
+    </properties>
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
